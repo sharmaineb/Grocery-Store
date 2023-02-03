@@ -79,7 +79,7 @@ def store_detail(store_id):
 
     # Send the form to the template and use it to render the form fields
     store = GroceryStore.query.get(store_id)
-    return render_template('store_detail.html', store_id=store_id, form=form)
+    return render_template('store_detail.html', store=store, form=form)
 
 @main.route('/item/<item_id>', methods=['GET', 'POST'])
 def item_detail(item_id):
