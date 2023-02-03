@@ -64,7 +64,7 @@ def new_item():
 def store_detail(store_id):
     store = GroceryStore.query.get(store_id)
     # Create a GroceryStoreForm and pass in `obj=store`
-    form = GroceryItemForm(obj=store)
+    form = GroceryStoreForm(obj=store)
     # If form was submitted and was valid:
     # update the GroceryStore object and save it to the database,
     if form.validate_on_submit():
