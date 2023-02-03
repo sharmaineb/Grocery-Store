@@ -21,7 +21,7 @@ def homepage():
 @main.route('/new_store', methods=['GET', 'POST'])
 def new_store():
     # Create a GroceryStoreForm
-    form = GroceryStoreForm
+    form = GroceryStoreForm()
     # If form was submitted and was valid:
     # create a new GroceryStore object and save it to the database,
     if form.validate_on_submit():
@@ -34,7 +34,7 @@ def new_store():
         return redirect(url_for('main.store_detail', store_id=new_store.id))
 
     # Send the form to the template and use it to render the form fields
-    return render_template('new_store.html')
+    return render_template('new_store.html', form=form)
 
 @main.route('/new_item', methods=['GET', 'POST'])
 def new_item():
@@ -58,7 +58,7 @@ def new_item():
         return redirect(url_for('main.item_detail', item_id=new_item.id))
 
     # Send the form to the template and use it to render the form fields
-    return render_template('new_item.html')
+    return render_template('new_item.html', form=form)
 
 @main.route('/store/<store_id>', methods=['GET', 'POST'])
 def store_detail(store_id):
@@ -79,7 +79,7 @@ def store_detail(store_id):
 
     # Send the form to the template and use it to render the form fields
     store = GroceryStore.query.get(store_id)
-    return render_template('store_detail.html', store=store, form=form)
+    return render_template('store_detail.html', store_id=store_id, form=form)
 
 @main.route('/item/<item_id>', methods=['GET', 'POST'])
 def item_detail(item_id):
