@@ -2,6 +2,7 @@
 {% block content %}
 
 <h1>Item - {{ item.name }}</h1>
+<h2>Created By: {{  item.created_by.username }}</h2>
 
 <p><img src="{{ item.photo_url }}" width="250px" height="250px"></p>
 
