@@ -107,11 +107,11 @@ def add_to_shopping_list(item_id):
     flash(f'{item.name} was added to the shopping list!')
     return redirect(url_for('main.item_detail', item_id=item_id))
 
-@@main.route('/shopping_list')
+@main.route('/shopping_list')
 @login_required
 def shopping_list():
-    # ... get logged in user's shopping list items ...
-    # ... display shopping list items in a template ...
+    users_shopping_list = current_user.shopping_users
+    return render_template('shopping_list.html', shopping_list=users_shopping_list)
 
 # auth
 
