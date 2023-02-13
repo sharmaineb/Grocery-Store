@@ -11,7 +11,6 @@ class GroceryStoreForm(FlaskForm):
     address = StringField('Address', validators=[DataRequired()])
     submit= SubmitField('Submit')
     
-
 class GroceryItemForm(FlaskForm):
     """Form for adding/updating a GroceryItem."""
     name = StringField('Name', validators=[DataRequired()])
